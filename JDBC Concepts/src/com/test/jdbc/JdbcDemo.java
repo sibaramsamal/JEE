@@ -33,6 +33,9 @@ public class JdbcDemo {
 			System.out.println("Emp ID: "+rs.getInt("eid"));
 			System.out.println("Emp Name: "+rs.getString("ename"));
 		}
+		st.close();
+		rs.close();
+		con.close();
 		}catch(ClassNotFoundException e) {
 			System.out.println("Driver class not found");
 		} catch (SQLException e) {
