@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Save Data to Database</title>
+</head>
+<body>
+		<h1 style="text-align: center">User details Register form</h1>
+		<form action="RegisterUser" method="post">
+		<table style="margin: 0 auto">
+			<tr>
+				<td>Name</td>
+				<td><input type="text" name="nm"></td>
+			</tr>
+			<tr>
+				<td>Mail ID</td>
+				<td><input type="email" name="mail"></td>
+			</tr>
+			<tr>
+				<td>Gender</td>
+				<td><label>Male</label><input type="radio" name="gen" value="Male">
+					<label>Female</label><input type="radio" name="gen" value="female"></td>
+			</tr>
+			<tr>
+				<td>Password</td>
+				<td><input type="password" name="pass"></td>
+			</tr>
+			<tr>
+				<td><label> Languages known </label></td>
+				<td>c<input type="checkbox" name="chk" value="c-lang">
+					c++<input type="checkbox" name="chk" value="c++-lang"> Java<input
+					type="checkbox" name="chk" value="java-lang"> Python<input
+					type="checkbox" name="chk" value="python-lang">
+				</td>
+			</tr>
+		</table>
+			<input type="submit" value="Register" style="margin:0 50%"/>
+	</form>
+</body>
+</html>
