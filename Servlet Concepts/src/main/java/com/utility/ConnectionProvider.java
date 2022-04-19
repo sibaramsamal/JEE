@@ -12,9 +12,9 @@ public class ConnectionProvider {
 			Class.forName("com.mysql.cj.jdbc.Driver");
 			con = DriverManager.getConnection("jdbc:mysql://localhost:3306/j2ee","root","");
 		}catch(ClassNotFoundException e) {
-			System.out.println(e);
+			System.out.println("Driver class not found");
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println("Error related to database connection");
 		}
 		return con;
 	}

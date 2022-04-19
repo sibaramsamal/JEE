@@ -11,6 +11,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
+
 import com.utility.ConnectionProvider;
 
 
@@ -26,24 +27,27 @@ public class RegisterUser extends HttpServlet {
 		String lang = "";
 		
 		for(String s:language)
-			lang = lang+s;
-		Connection con = ConnectionProvider.getConnection();
+			lang = lang+s+",";
+		
+		
+		PreparedStatement pst = null;
+		int i = 0;
 		try {
-			PreparedStatement pst = con.prepareStatement("insert into user_details values(?,?,?,?,?)");
+			Connection con = ConnectionProvider.getConnection();
+			pst = con.prepareStatement("insert into user_details(uname,mail,gender,password,languages) values(?,?,?,?,?)");
 			pst.setString(1, uname);
 			pst.setString(2, mail);
 			pst.setString(3, gender);
 			pst.setString(4, password);
 			pst.setString(5, lang);
 			
+			i = pst.executeUpdate();
 		} catch (SQLException e) {
-			e.printStackTrace();
+			System.out.println(e);
 		}
-		
+		if(i > 0)
+			response.getWriter().print("Data inserted successfully");
+		else
+			response.getWriter().print("Problem storing data !!!");
 	}
-	/*
-	 * protected void doPost(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { doGet(request, response); }
-	 */
-
 }
