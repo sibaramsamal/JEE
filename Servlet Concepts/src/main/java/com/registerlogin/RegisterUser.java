@@ -5,12 +5,12 @@ import java.sql.Connection;
 import java.sql.PreparedStatement;
 import java.sql.SQLException;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-
 
 import com.utility.ConnectionProvider;
 
@@ -45,9 +45,28 @@ public class RegisterUser extends HttpServlet {
 		} catch (SQLException e) {
 			System.out.println(e);
 		}
-		if(i > 0)
-			response.getWriter().print("Data inserted successfully");
-		else
-			response.getWriter().print("Problem storing data !!!");
+		if(i > 0) {
+			//response.getWriter().print("Data inserted successfully");	//Success msg displayed on browser screen
+			//response.sendRedirect("user-login.html"); approach 1 of redirection
+			RequestDispatcher rd = request.getRequestDispatcher("user-login.html");
+			rd.forward(request, response);
+		}
+		else {
+			//response.getWriter().print("Problem storing data !!!");
+			response.sendRedirect("register-user-details.html");
+		}
 	}
 }
+
+/*
+ 	Redirection is done through 2 ways.
+ 		1. sendRedirect()
+ 		2. RequestDispatcher
+ 	In sendRedirect(), response is given by the redirected resource because a new fresh pair of ServletRequest and ServletResponse object are generated for each sendRedirect() operation. So url changes.
+ 	
+ 	But in case of RequestDispatcher, same pair of objects are sent to the requested resource. Here the output(response) is given by the same servlet not the requested resource. So url never changes.
+ 	
+ 	sendRedirect and forward is shown here in this program. include is shown in CheckValidUser servlet
+ */
+
+
