@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<form action="Servlet1" method="post">
+		Name<input type="text" name="uname">
+		Password<input type="password" name="pass">
+			<input type="submit" value="Request">
+	</form>
+</body>
+</html>
+
+<!--
+	 Here, When Request button is clicked, a pair of http request and responce object is created and 
+	 sent as the request to the server. As post type request is set here, doPost() must be there to receive the request and response objects.
+	 
+	 From that resource, we can get the values from request object by getParameter() 
+
+
+-->
