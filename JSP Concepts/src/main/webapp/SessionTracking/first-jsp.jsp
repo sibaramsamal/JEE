@@ -1,5 +1,5 @@
 <%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-    pageEncoding="ISO-8859-1" session="true"%>
+    pageEncoding="ISO-8859-1" session="true" errorPage="../serror-page.jsp"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -13,7 +13,7 @@
 		String gender = request.getParameter("gen");
 		session.setAttribute("name", name);
 		session.setAttribute("age", age);
-		session.setAttribute("gen", gender);
+		session.setAttribute("gend", gender);
 	%>
 	<a href="second-jsp.jsp">Second JSP</a>
 </body>
