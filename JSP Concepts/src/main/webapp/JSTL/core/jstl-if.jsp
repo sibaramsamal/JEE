@@ -8,7 +8,10 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<c:if test="${ 560 > 60 }">Yes 560 is greater than 60</c:if>
+	<c:if test="${ 560 > 60 }">
+		Yes 560 is greater than 60
+		<!-- we can place any code inside if tag -->
+	</c:if>
 	<!-- Condition is placed inside test attribute. We can also place variabbles through EL also -->
 </body>
 </html>
